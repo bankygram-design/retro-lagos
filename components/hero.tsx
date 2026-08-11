@@ -1,7 +1,6 @@
 'use client'
 
 import { brand } from '@/lib/content'
-import { ArrowDown } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 
 export function Hero() {
@@ -30,15 +29,16 @@ export function Hero() {
     }
   }, [])
 
-  const imageScale = 1 + progress * 0.16
-  const imageY = progress * 40
-  const textY = progress * -60
-  const textOpacity = 1 - progress * 1.25
+  // Restrained, cinematic parallax — no cheesy zoom
+  const imageScale = 1 + progress * 0.08
+  const imageY = progress * 70
+  const textY = progress * -36
+  const textOpacity = 1 - progress * 1.15
 
   return (
     <section
       id="top"
-      className="grain relative flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden"
+      className="grain vignette relative flex h-[100svh] min-h-[640px] w-full flex-col overflow-hidden"
       aria-label="RETRO LAGOS introduction"
     >
       {/* Cinematic full-bleed image */}
@@ -57,43 +57,70 @@ export function Hero() {
         />
       </div>
 
-      {/* Cinematic gradient */}
+      {/* Cinematic dark treatment for legibility */}
       <div
-        className="absolute inset-0 z-[1] bg-gradient-to-t from-background via-background/55 to-background/35"
+        className="absolute inset-0 z-[1] bg-gradient-to-t from-background via-background/50 to-background/40"
         aria-hidden
       />
       <div
-        className="absolute inset-0 z-[1] bg-gradient-to-r from-background/70 to-transparent"
+        className="absolute inset-0 z-[1] bg-gradient-to-r from-background/75 via-transparent to-transparent"
         aria-hidden
       />
 
-      {/* Content */}
+      {/* Top editorial metadata rail */}
       <div
-        className="relative z-[3] mx-auto w-full max-w-[1400px] px-5 pb-16 sm:px-8 sm:pb-20"
-        style={{
-          opacity: mounted ? Math.max(textOpacity, 0) : 1,
-        }}
+        className={`relative z-[3] mx-auto flex w-full max-w-[1400px] items-center justify-between px-5 pt-24 transition-all duration-1000 ease-out sm:px-8 sm:pt-28 ${
+          mounted ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
+        }`}
+        style={{ transitionDelay: '500ms' }}
+      >
+        <span className="font-sans text-[0.7rem] uppercase tracking-[0.3em] text-foreground/70">
+          {brand.heroMeta.region}
+        </span>
+        <span className="font-sans text-[0.7rem] uppercase tracking-[0.3em] text-foreground/70">
+          {brand.heroMeta.est}
+        </span>
+      </div>
+
+      {/* Right-edge vertical label */}
+      <div
+        className={`pointer-events-none absolute right-3 top-1/2 z-[3] hidden -translate-y-1/2 transition-all duration-1000 ease-out md:block ${
+          mounted ? 'translate-x-0 opacity-100' : 'translate-x-3 opacity-0'
+        }`}
+        style={{ transitionDelay: '800ms' }}
+      >
+        <span className="vertical-rl font-sans text-[0.68rem] uppercase tracking-[0.42em] text-foreground/55">
+          {brand.heroMeta.tagline}
+        </span>
+      </div>
+
+      {/* Headline anchored to the baseline */}
+      <div
+        className="relative z-[3] mx-auto mt-auto w-full max-w-[1400px] px-5 pb-14 sm:px-8 sm:pb-16"
+        style={{ opacity: mounted ? Math.max(textOpacity, 0) : 1 }}
       >
         <div style={{ transform: `translateY(${textY}px)` }}>
-          <p
-            className={`kicker mb-6 text-gold transition-all duration-1000 ease-out ${
-              mounted ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+          <div
+            className={`mb-6 flex items-center gap-4 transition-all duration-1000 ease-out ${
+              mounted ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
             }`}
+            style={{ transitionDelay: '200ms' }}
           >
-            Lagos · Luxury Nightlife
-          </p>
+            <span className="h-px w-12 bg-gold" aria-hidden />
+            <p className="kicker text-gold">Lagos After Dark</p>
+          </div>
 
           <h1 className="display font-semibold text-foreground">
             {brand.heroLines.map((line, i) => (
               <span key={line} className="block overflow-hidden">
                 <span
-                  className="block text-[15vw] leading-[0.86] sm:text-[13vw] lg:text-[11rem]"
+                  className="block text-[16vw] leading-[0.84] sm:text-[13vw] lg:text-[11.5rem]"
                   style={{
                     transitionProperty: 'transform, opacity',
                     transitionDuration: '1100ms',
                     transitionTimingFunction: 'cubic-bezier(0.16,1,0.3,1)',
-                    transitionDelay: `${200 + i * 140}ms`,
-                    transform: mounted ? 'translateY(0)' : 'translateY(105%)',
+                    transitionDelay: `${300 + i * 130}ms`,
+                    transform: mounted ? 'translateY(0)' : 'translateY(108%)',
                     opacity: mounted ? 1 : 0,
                     color: i === brand.heroLines.length - 1 ? 'var(--gold)' : undefined,
                   }}
@@ -105,10 +132,10 @@ export function Hero() {
           </h1>
 
           <div
-            className={`mt-10 flex flex-col gap-6 border-t border-border/70 pt-6 transition-all duration-1000 ease-out sm:flex-row sm:items-center sm:justify-between ${
+            className={`mt-9 flex flex-col gap-5 border-t border-border/70 pt-6 transition-all duration-1000 ease-out sm:flex-row sm:items-center sm:justify-between ${
               mounted ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
             }`}
-            style={{ transitionDelay: '700ms' }}
+            style={{ transitionDelay: '760ms' }}
           >
             <div className="flex flex-wrap gap-x-8 gap-y-2 font-sans text-xs uppercase tracking-[0.22em] text-muted-foreground">
               <span>{brand.heroMeta.location}</span>
@@ -119,10 +146,12 @@ export function Hero() {
             </div>
             <a
               href="#vibe"
-              className="group inline-flex items-center gap-3 font-sans text-xs uppercase tracking-[0.22em] text-foreground"
+              className="group inline-flex items-center gap-3 font-sans text-xs uppercase tracking-[0.22em] text-foreground/80 transition-colors hover:text-foreground"
             >
               <span>Scroll to enter</span>
-              <ArrowDown className="size-4 text-gold transition-transform duration-500 group-hover:translate-y-1 motion-safe:animate-bounce" aria-hidden />
+              <span className="relative flex h-8 w-px overflow-hidden bg-border" aria-hidden>
+                <span className="absolute inset-x-0 top-0 h-3 bg-gold transition-transform duration-700 ease-out group-hover:translate-y-5" />
+              </span>
             </a>
           </div>
         </div>

@@ -2,7 +2,6 @@
 
 import { brand, navLinks } from '@/lib/content'
 import { cn } from '@/lib/utils'
-import { Phone } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { MobileMenu } from './mobile-menu'
 
@@ -80,18 +79,19 @@ export function Navbar() {
             })}
           </nav>
 
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden items-center gap-6 lg:flex">
             <a
               href={brand.phoneHref}
-              className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground"
+              className="font-sans text-xs uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground"
             >
-              <Phone className="size-3.5" aria-hidden />
-              Call Now
+              Call
             </a>
+            <span className="h-4 w-px bg-border" aria-hidden />
             <a
               href={brand.reserveHref}
-              className="bg-gold px-6 py-3 font-sans text-xs uppercase tracking-[0.22em] text-background transition-all duration-500 hover:bg-foreground hover:tracking-[0.28em]"
+              className="group relative inline-flex items-center gap-2.5 font-sans text-xs uppercase tracking-[0.22em] text-foreground"
             >
+              <span className="size-1.5 rounded-full bg-gold transition-transform duration-500 group-hover:scale-150" aria-hidden />
               Reserve
             </a>
           </div>

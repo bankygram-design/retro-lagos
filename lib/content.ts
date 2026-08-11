@@ -11,6 +11,9 @@ export const brand = {
   // Placeholder creative hero copy — safe to edit later.
   heroLines: ['THE NIGHT', 'BELONGS', 'TO LAGOS.'],
   heroMeta: {
+    region: 'Lagos / Nigeria',
+    tagline: 'Nightlife • Music • Culture',
+    est: 'Est. 2026',
     location: 'Victoria Island · Lagos',
     hours: 'Thu — Sun · 8PM till late',
   },
@@ -69,6 +72,7 @@ export type EventItem = {
   weekday: string
   name: string
   performer: string
+  category: string
   copy: string
   image: string
 }
@@ -81,7 +85,8 @@ export const events: EventItem[] = [
     weekday: 'Friday',
     name: 'Golden Hour Sessions',
     performer: 'DJ Layo · Live Percussion',
-    copy: 'An afrobeats and amapiano takeover with live drums under champagne light.',
+    category: 'Afrobeats · Amapiano',
+    copy: 'An afrobeats and amapiano takeover with live drums under champagne light — our biggest night of the month.',
     image: '/images/event-1.png',
   },
   {
@@ -91,6 +96,7 @@ export const events: EventItem[] = [
     weekday: 'Saturday',
     name: 'Bottle & Sparkle',
     performer: 'Resident Selectors',
+    category: 'House · Open Format',
     copy: 'Our signature Saturday — premium bottle service, house anthems and full-room energy.',
     image: '/images/event-2.png',
   },
@@ -101,6 +107,7 @@ export const events: EventItem[] = [
     weekday: 'Sunday',
     name: 'Soul & Smoke',
     performer: 'Live Band · Guest Vocalist',
+    category: 'Live Soul · Jazz',
     copy: 'A slower, sultry night of live soul, jazz and low light to close the week.',
     image: '/images/event-3.png',
   },

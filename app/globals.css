@@ -123,3 +123,64 @@
     transform: none;
   }
 }
+
+/* Oversized outlined "ghost" numerals used as composition marks */
+.numeral-outline {
+  font-family: var(--font-display);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--gold);
+  line-height: 0.8;
+}
+
+/* Vertical editorial labels for hero / section edges */
+.vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Cinematic vignette for full-bleed image beds */
+.vignette::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 90% at 50% 30%,
+    transparent 40%,
+    color-mix(in oklch, var(--background) 70%, transparent) 100%
+  );
+}
+
+/* Lightbox fade + scale */
+@keyframes lb-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes lb-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.lb-backdrop {
+  animation: lb-in 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.lb-figure {
+  animation: lb-zoom 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-backdrop,
+  .lb-figure {
+    animation: none;
+  }
+}
