@@ -1,5 +1,6 @@
 import { EventPreview } from '@/components/event-preview'
 import { ExperienceSection } from '@/components/experience-section'
+import { ClubFeatures } from '@/components/club-features'
 import { Footer } from '@/components/footer'
 import { Gallery } from '@/components/gallery'
 import { Hero } from '@/components/hero'
@@ -23,6 +24,7 @@ export default function Page() {
         <Hero />
         <Intro />
         <ExperienceSection />
+        <ClubFeatures />
         <EventPreview />
         <MenuPreview />
         <Gallery />

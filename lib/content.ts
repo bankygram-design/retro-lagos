@@ -14,8 +14,7 @@ export const brand = {
     region: 'Lagos / Nigeria',
     tagline: 'Nightlife • Music • Culture',
     est: 'Est. 2026',
-    location: 'Victoria Island · Lagos',
-    hours: 'Thu — Sun · 8PM till late',
+    location: "2nd Junction Governor's Road, Ikotun Lagos",
   },
   // Placeholder contact details — replace with real values later.
   phone: '+234 000 000 0000',
@@ -25,6 +24,7 @@ export const brand = {
 
 export const navLinks = [
   { label: 'Vibe', href: '#vibe' },
+  { label: 'Club', href: '#club' },
   { label: 'Menu', href: '#menu' },
   { label: 'Events', href: '#events' },
   { label: 'Gallery', href: '#gallery' },
@@ -62,6 +62,29 @@ export const experiences: Experience[] = [
     title: 'The Night',
     copy: 'Rooftop air, city lights and the kind of evenings people talk about for weeks.',
     image: '/images/night.png',
+  },
+]
+
+export const clubFeatures = [
+  {
+    index: '01',
+    title: 'DJs & Live Sets',
+    copy: 'Resident selectors, guest DJs and live performances bring Afrobeats, amapiano and soul to the room.',
+  },
+  {
+    index: '02',
+    title: 'The Dancefloor',
+    copy: 'A space to move, catch the rhythm and stay in the heart of the night.',
+  },
+  {
+    index: '03',
+    title: 'Bottle Service',
+    copy: 'Make it a night to remember with premium bottle service and a table of your own.',
+  },
+  {
+    index: '04',
+    title: 'Rooftop Lounge',
+    copy: 'Step above the city for rooftop air, Lagos lights and a slower moment between sets.',
   },
 ]
 
@@ -157,17 +180,11 @@ export const galleryImages: GalleryImage[] = [
 ]
 
 export const visit = {
-  // Placeholder location details — replace with real values later.
-  address: ['RETRO LAGOS', '00 Placeholder Street', 'Victoria Island, Lagos'],
-  hours: [
-    { day: 'Thursday', time: '8:00 PM — 2:00 AM' },
-    { day: 'Friday', time: '8:00 PM — 4:00 AM' },
-    { day: 'Saturday', time: '8:00 PM — 4:00 AM' },
-    { day: 'Sunday', time: '7:00 PM — 1:00 AM' },
-  ],
+  address: ['RETRO LAGOS', "2nd Junction Governor's Road", 'Ikotun Lagos'],
   phone: brand.phone,
   phoneHref: brand.phoneHref,
-  directionsHref: 'https://maps.google.com/?q=Lagos',
+  directionsHref:
+    "https://maps.google.com/?q=2nd+Junction+Governor's+Road,+Ikotun+Lagos",
 }
 
 export const socials = [

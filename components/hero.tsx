@@ -142,7 +142,7 @@ export function Hero() {
               <span className="hidden sm:inline" aria-hidden>
                 /
               </span>
-              <span>{brand.heroMeta.hours}</span>
+              <span>{brand.heroMeta.tagline}</span>
             </div>
             <a
               href="#vibe"

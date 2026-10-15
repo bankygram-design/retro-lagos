@@ -30,26 +30,6 @@ export function VisitSection() {
             </Reveal>
 
             <Reveal className="flex items-start gap-5 py-8">
-              <span className="mt-1 size-5 shrink-0 text-center text-gold" aria-hidden>
-                ☾
-              </span>
-              <div className="w-full">
-                <h3 className="font-sans text-xs uppercase tracking-[0.24em] text-muted-foreground">
-                  Opening Hours
-                </h3>
-                <dl className="mt-3 flex flex-col gap-2">
-                  {visit.hours.map((h) => (
-                    <div key={h.day} className="flex items-baseline justify-between gap-4">
-                      <dt className="text-lg">{h.day}</dt>
-                      <span className="mx-3 h-px flex-1 translate-y-[-3px] bg-border/60" aria-hidden />
-                      <dd className="font-sans text-sm text-muted-foreground">{h.time}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </Reveal>
-
-            <Reveal className="flex items-start gap-5 py-8">
               <Phone className="mt-1 size-5 shrink-0 text-gold" aria-hidden />
               <div>
                 <h3 className="font-sans text-xs uppercase tracking-[0.24em] text-muted-foreground">
